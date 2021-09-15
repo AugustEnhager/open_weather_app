@@ -1,18 +1,27 @@
-import React, { useState, useEffect } from "react";
+import axios from 'axios'
+import React, { Component } from 'react'
 
-const App = () => {
-  const [geolocation, setGeolocation] = useState({});
+export class App extends Component {
+  state = {
+    geolocation: {}
+  }
+  
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(async position => {
+      let { latitude, longitude } = position.coords
+      let locationResponse = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=a6011dafb92e4c91824ac448c7973c0c`)
+      let weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=c1d9dbe5c0dfaac680ddbc9e7a19e3341`)
+      debugger
+    })
+  }
 
-  navigator.geolocation.getCurrentPosition((position) => {
-    setGeolocation(position.coords);
-    debugger;
-  });
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+}
 
-  return (
-    <div>
-      <h1>Hello world</h1>
-    </div>
-  );
-};
-
-export default App;
+export default App
