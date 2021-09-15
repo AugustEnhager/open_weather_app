@@ -26,5 +26,11 @@ describe("weather info for user's location", () => {
       cy.get("[data-cy=temp]").should("contain", "17°C");
       cy.get("[data-cy=location]").should("contain", "Virum");
     });
+
+  });
+
+  it('is expected to display a header', () => {
+    cy.get("[data-testid=header]").should("contain.text", "Welcome to Weather App 3000");
+    
   });
 });

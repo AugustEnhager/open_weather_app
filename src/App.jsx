@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Item } from "semantic-ui-react";
 
 export class App extends Component {
   state = {
@@ -25,8 +26,18 @@ export class App extends Component {
     });
   }
 
+  
+
   render() {
-    return <div></div>;
+
+    
+    return (
+
+      
+      <div>
+        <h1 data-testid="header">Welcome to Weather App 3000, you are in and its 13 degrees</h1>
+      </div>
+    );
   }
 }
 
