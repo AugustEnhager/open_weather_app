@@ -1,0 +1,144 @@
+{
+    "documentation": "https://opencagedata.com/api",
+    "licenses": [
+        {
+            "name": "see attribution guide",
+            "url": "https://opencagedata.com/credits"
+        }
+    ],
+    "rate": {
+        "limit": 2500,
+        "remaining": 2433,
+        "reset": 1631750400
+    },
+    "results": [
+        {
+            "annotations": {
+                "DMS": {
+                    "lat": "55° 47' 2.90400'' N",
+                    "lng": "12° 27' 6.24960'' E"
+                },
+                "MGRS": "33UUB4020584994",
+                "Maidenhead": "JO65fs48fe",
+                "Mercator": {
+                    "x": 1386120.911,
+                    "y": 7480201.703
+                },
+                "OSM": {
+                    "edit_url": "https://www.openstreetmap.org/edit?node=3185256527#map=17/55.78414/12.45174",
+                    "note_url": "https://www.openstreetmap.org/note/new#map=17/55.78414/12.45174&layers=N",
+                    "url": "https://www.openstreetmap.org/?mlat=55.78414&mlon=12.45174#map=17/55.78414/12.45174"
+                },
+                "UN_M49": {
+                    "regions": {
+                        "DK": "208",
+                        "EUROPE": "150",
+                        "NORTHERN_EUROPE": "154",
+                        "WORLD": "001"
+                    },
+                    "statistical_groupings": [
+                        "MEDC"
+                    ]
+                },
+                "callingcode": 45,
+                "currency": {
+                    "alternate_symbols": [
+                        ",-"
+                    ],
+                    "decimal_mark": ",",
+                    "disambiguate_symbol": "DKK",
+                    "format": "%n %u",
+                    "html_entity": "",
+                    "iso_code": "DKK",
+                    "iso_numeric": "208",
+                    "name": "Danish Krone",
+                    "smallest_denomination": 50,
+                    "subunit": "Øre",
+                    "subunit_to_unit": 100,
+                    "symbol": "kr.",
+                    "symbol_first": 0,
+                    "thousands_separator": "."
+                },
+                "flag": "🇩🇰",
+                "geohash": "u3bv775n4mrkcgk5m72t",
+                "qibla": 138.17,
+                "roadinfo": {
+                    "drive_on": "right",
+                    "road": "Hummeltoftevej",
+                    "speed_in": "km/h"
+                },
+                "sun": {
+                    "rise": {
+                        "apparent": 1631680980,
+                        "astronomical": 1631673120,
+                        "civil": 1631678760,
+                        "nautical": 1631676060
+                    },
+                    "set": {
+                        "apparent": 1631726760,
+                        "astronomical": 1631734620,
+                        "civil": 1631729040,
+                        "nautical": 1631731680
+                    }
+                },
+                "timezone": {
+                    "name": "Europe/Copenhagen",
+                    "now_in_dst": 1,
+                    "offset_sec": 7200,
+                    "offset_string": "+0200",
+                    "short_name": "CEST"
+                },
+                "what3words": {
+                    "words": "sweeping.briefer.boats"
+                }
+            },
+            "bounds": {
+                "northeast": {
+                    "lat": 55.78419,
+                    "lng": 12.451786
+                },
+                "southwest": {
+                    "lat": 55.78409,
+                    "lng": 12.451686
+                }
+            },
+            "components": {
+                "ISO_3166-1_alpha-2": "DK",
+                "ISO_3166-1_alpha-3": "DNK",
+                "_category": "building",
+                "_type": "building",
+                "continent": "Europe",
+                "country": "Denmark",
+                "country_code": "dk",
+                "hamlet": "Frederiksdal",
+                "house_number": "193A",
+                "municipality": "Lyngby-Taarbæk Municipality",
+                "political_union": "European Union",
+                "postal_city": "Virum",
+                "postcode": "2830",
+                "road": "Hummeltoftevej",
+                "state": "Capital Region of Denmark"
+            },
+            "confidence": 10,
+            "formatted": "Hummeltoftevej 193A, 2830 Virum, Denmark",
+            "geometry": {
+                "lat": 55.78414,
+                "lng": 12.451736
+            }
+        }
+    ],
+    "status": {
+        "code": 200,
+        "message": "OK"
+    },
+    "stay_informed": {
+        "blog": "https://blog.opencagedata.com",
+        "twitter": "https://twitter.com/OpenCage"
+    },
+    "thanks": "For using an OpenCage API",
+    "timestamp": {
+        "created_http": "Wed, 15 Sep 2021 14:27:59 GMT",
+        "created_unix": 1631716079
+    },
+    "total_results": 1
+}

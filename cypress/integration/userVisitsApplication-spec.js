@@ -1,4 +1,11 @@
 describe("weather info for user's location", () => {
+  beforeEach(() => {
+    cy.intercept('https:/api.openweathermap.org/data/2.5/**', { fixture: 'weather_response.json' })
+    cy.intercept('https:/api.opencagedata.com/geocode/vi/json/**', { fixture:  'location_response.json' })
+
+  })
+
+
   it("is expected to be displayed on initial render", () => {
     cy.visit("/", {
       onBeforeLoad(window) {
