@@ -17,11 +17,12 @@ export class App extends Component {
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=c1d9dbe5c0dfaac680ddbc9e7a19e334`
       );
 
-      let weatherInfo = {
+      const weatherInfo = {
         city: locationResponse.data.results[0].components.postal_city,
         temp: weatherResponse.data.current.temp,
       };
       this.setState({ location: weatherInfo });
+      this.setState({ weatherInfo: weatherInfo });
       debugger
     });
   }
@@ -29,13 +30,17 @@ export class App extends Component {
   
 
   render() {
+    const { weatherInfo } = this.state;
 
-    
     return (
-
       
       <div>
         <h1 data-testid="header">Welcome to Weather App 3000, you are in and its 13 degrees</h1>
+        <div data-cy="weather-display">
+          <div data-cy="temp">{weatherInfo}</div>
+          <div data-cy="location"> </div>
+        </div>
+
       </div>
     );
   }
