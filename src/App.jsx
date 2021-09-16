@@ -70,11 +70,20 @@ export class App extends Component {
 
     return (
       <div>
-        <Header data-testid="header">Welcome to Weather App 3000</Header>
+        <div data-testid="header" class="ui huge center aligned header">
+          Welcome to Weather App 3000
+        </div>
         <div class="ui grid">
           <div class="four wide column">
             <div data-cy="weather-display">
               <div class="ui relaxed divided list">
+                <div class="item">
+                  <i class></i>
+                  <div class="content">
+                    <a class="header"></a>
+                    <div class="description"></div>
+                  </div>
+                </div>
                 <div class="item">
                   <i class="large world middle aligned icon"></i>
                   <div class="content">
@@ -115,7 +124,7 @@ export class App extends Component {
             </div>
           </div>
           <div class="twelve wide column">
-            <Line data={data}/>
+            <Line data={data} />
           </div>
         </div>
       </div>
