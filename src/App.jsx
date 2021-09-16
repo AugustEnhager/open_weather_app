@@ -4,25 +4,26 @@ import { Item } from "semantic-ui-react";
 
 export class App extends Component {
   state = {
-    geolocation: {},
+    location: {},
   };
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(async (position) => {
       let { latitude, longitude } = position.coords;
-      let locationResponse = await axios.get(
-        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=62ec85f74ac844b6a9b671b840175735`
+      const cageKey = "62ec85f74ac844b6a9b671b840175735"
+      const weatherKey = "c1d9dbe5c0dfaac680ddbc9e7a19e334"
+      const locationResponse = await axios.get(
+        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${cageKey}`
       );
-      let weatherResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=c1d9dbe5c0dfaac680ddbc9e7a19e334`
+      const weatherResponse = await axios.get(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${weatherKey}`
       );
 
       const weatherInfo = {
         city: locationResponse.data.results[0].components.postal_city,
         temp: weatherResponse.data.current.temp,
       };
-      this.setState({ location: weatherInfo });
-      this.setState({ weatherInfo: weatherInfo });
+      this.setState({ location: weatherInfo });     
       debugger
     });
   }
@@ -30,14 +31,14 @@ export class App extends Component {
   
 
   render() {
-    const { weatherInfo } = this.state;
+    const temp = this.state.location.temp;
 
     return (
       
       <div>
-        <h1 data-testid="header">Welcome to Weather App 3000, you are in and its 13 degrees</h1>
+        <h1 data-testid="header">Welcome to Weather App 3000, you are in and its {temp}°C</h1>
         <div data-cy="weather-display">
-          <div data-cy="temp">{weatherInfo}</div>
+          <div data-cy="temp"></div>
           <div data-cy="location"> </div>
         </div>
 
