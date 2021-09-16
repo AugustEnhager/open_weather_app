@@ -71,47 +71,52 @@ export class App extends Component {
     return (
       <div>
         <Header data-testid="header">Welcome to Weather App 3000</Header>
-        <div data-cy="weather-display">
-          <div class="ui relaxed divided list">
-            <div class="item">
-              <i class="large world middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Location</a>
-                <div class="description">{city}</div>
-              </div>
-            </div>
-            <div class="item">
-              <i class="large fire middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Temperature</a>
-                <div class="description">{temp}°C</div>
-              </div>
-            </div>
-            <div class="item">
-              <i class="large angle double right middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Windspeed</a>
-                <div class="description">{windspeed}m/s</div>
-              </div>
-            </div>
-          
-            <div class="item">
-              <i class="large tint middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Humidity</a>
-                <div class="description">{humidity}</div>
-              </div>
-            </div>
-            <div class="item">
-              <i class="large cloud middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Weather</a>
-                <div class="description">{weather}</div>
+        <div class="ui grid">
+          <div class="four wide column">
+            <div data-cy="weather-display">
+              <div class="ui relaxed divided list">
+                <div class="item">
+                  <i class="large world middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Location</a>
+                    <div class="description">{city}</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large fire middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Temperature</a>
+                    <div class="description">{temp}°C</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large angle double right middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Windspeed</a>
+                    <div class="description">{windspeed}m/s</div>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <i class="large tint middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Humidity</a>
+                    <div class="description">{humidity}</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large cloud middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Weather</a>
+                    <div class="description">{weather}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <Line data={data} />
+          <div class="twelve wide column">
+            <Line data={data}/>
+          </div>
         </div>
       </div>
     );
