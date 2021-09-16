@@ -58,7 +58,13 @@ export class App extends Component {
       });
       data = {
         labels: labels,
-        datasets: [{ label: "Daily Temp", data: dataItems }],
+        datasets: [{ 
+          label: "Daily Temperature", 
+          data: dataItems, 
+          borderColor: 'rgba(0, 128, 128, 0.6)',
+          tension: 0.1
+        }]
+        
       };
     }
 
@@ -70,7 +76,7 @@ export class App extends Component {
 
     return (
       <div>
-        <div data-testid="header" class="ui huge center aligned header">
+        <div data-testid="header" class="ui huge center aligned header teal">
           Welcome to Weather App 3000
         </div>
         <div class="ui grid">
@@ -85,14 +91,14 @@ export class App extends Component {
                   </div>
                 </div>
                 <div class="item">
-                  <i class="large world middle aligned icon"></i>
+                  <i class="large world middle aligned icon green"></i>
                   <div class="content">
                     <a class="header">Location</a>
                     <div class="description">{city}</div>
                   </div>
                 </div>
                 <div class="item">
-                  <i class="large fire middle aligned icon"></i>
+                  <i class="large fire middle aligned icon red"></i>
                   <div class="content">
                     <a class="header">Temperature</a>
                     <div class="description">{temp}°C</div>
@@ -107,14 +113,14 @@ export class App extends Component {
                 </div>
 
                 <div class="item">
-                  <i class="large tint middle aligned icon"></i>
+                  <i class="large tint middle aligned icon blue"></i>
                   <div class="content">
                     <a class="header">Humidity</a>
-                    <div class="description">{humidity}</div>
+                    <div class="description">{humidity}%</div>
                   </div>
                 </div>
                 <div class="item">
-                  <i class="large cloud middle aligned icon"></i>
+                  <i class="large cloud middle aligned icon grey"></i>
                   <div class="content">
                     <a class="header">Weather</a>
                     <div class="description">{weather}</div>
@@ -124,7 +130,7 @@ export class App extends Component {
             </div>
           </div>
           <div class="twelve wide column">
-            <Line data={data} />
+            <Line data={data}/>
           </div>
         </div>
       </div>
