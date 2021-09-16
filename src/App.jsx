@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Item } from "semantic-ui-react";
-import { Line } from "react-chartjs-2"
-
+import { Line } from "react-chartjs-2";
 
 export class App extends Component {
   state = {
@@ -20,6 +19,7 @@ export class App extends Component {
       const weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${weatherKey}`
       );
+      this.setState({ hourlyTemp: weatherResponse.data.hourly });
 
       // const locationResponse = await axios({
       //   method: "GET",
@@ -40,13 +40,28 @@ export class App extends Component {
         weather: weatherResponse.data.current.weather[0].main,
       };
 
-
+      
 
       this.setState({ location: weatherInfo });
     });
   }
 
   render() {
+    const { location, hourlyTemp} = this.state
+    let labels = []
+    let dataItems = []
+    let data
+    if(hourlyTemp) {
+      hourlyTemp.forEach(hour => {
+        labels.push(new Date(hour.dt * 1000).toLocaleDateString())
+        dataItems.push(hour.temp.hour)
+      })
+      data = { labels: labels, datasets: [{ label: "Hourly Temp", data: dataItems}]}
+    }
+
+
+
+
     const temp = this.state.location.temp;
     const city = this.state.location.city;
     const humidity = this.state.location.humidity;
@@ -62,6 +77,7 @@ export class App extends Component {
           <div data-cy="humidity">Humidity: {humidity}%</div>
           <div data-cy="windspeed">Windspeed: {windspeed}m/s </div>
           <div data-cy="weather"> Weather: {weather}</div>
+          <Line data={data}/>
         </div>
       </div>
     );
