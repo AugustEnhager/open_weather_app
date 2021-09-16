@@ -81,28 +81,35 @@ export class App extends Component {
               </div>
             </div>
             <div class="item">
-              <i class="large github middle aligned icon"></i>
+              <i class="large fire middle aligned icon"></i>
               <div class="content">
-                <a class="header">Semantic-Org/Semantic-UI-Docs</a>
-                <div class="description">Updated 22 mins ago</div>
+                <a class="header">Temperature</a>
+                <div class="description">{temp}°C</div>
               </div>
             </div>
             <div class="item">
-              <i class="large github middle aligned icon"></i>
+              <i class="large angle double right middle aligned icon"></i>
               <div class="content">
-                <a class="header">Semantic-Org/Semantic-UI-Meteor</a>
-                <div class="description">Updated 34 mins ago</div>
+                <a class="header">Windspeed</a>
+                <div class="description">{windspeed}m/s</div>
+              </div>
+            </div>
+          
+            <div class="item">
+              <i class="large tint middle aligned icon"></i>
+              <div class="content">
+                <a class="header">Humidity</a>
+                <div class="description">{humidity}</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="large cloud middle aligned icon"></i>
+              <div class="content">
+                <a class="header">Weather</a>
+                <div class="description">{weather}</div>
               </div>
             </div>
           </div>
-
-          <List data-cy="location">Location: {city} </List>
-          <List data-cy="temp">Temperature: {temp}°C</List>
-          <List data-cy="humidity">Humidity: {humidity}%</List>
-          <List data-cy="windspeed">Windspeed: {windspeed}</List>
-          <List data-cy="weather">Weather: {weather} </List>
-
-          {/* </div><div class="ui list"> */}
 
           <Line data={data} />
         </div>
