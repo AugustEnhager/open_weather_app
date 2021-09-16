@@ -19,7 +19,7 @@ export class App extends Component {
       const weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${weatherKey}`
       );
-      this.setState({ hourlyTemp: weatherResponse.data.hourly });
+      this.setState({ dailyTemp: weatherResponse.data.daily });
 
       // const locationResponse = await axios({
       //   method: "GET",
@@ -40,23 +40,23 @@ export class App extends Component {
         weather: weatherResponse.data.current.weather[0].main,
       };
 
-      
-
+      debugger
+     
       this.setState({ location: weatherInfo });
     });
   }
 
   render() {
-    const { location, hourlyTemp} = this.state
+    const { location, dailyTemp} = this.state
     let labels = []
     let dataItems = []
     let data
-    if(hourlyTemp) {
-      hourlyTemp.forEach(hour => {
-        labels.push(new Date(hour.dt * 1000).toLocaleDateString())
-        dataItems.push(hour.temp.hour)
+    if(dailyTemp) {
+      dailyTemp.forEach(day => {       
+        labels.push(new Date(day.dt * 1000).toLocaleDateString())
+        dataItems.push(day.temp.day)
       })
-      data = { labels: labels, datasets: [{ label: "Hourly Temp", data: dataItems}]}
+      data = { labels: labels, datasets: [{ label: "Daily Temp", data: dataItems}]}
     }
 
 
