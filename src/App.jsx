@@ -22,7 +22,8 @@ export class App extends Component {
       const weatherInfo = {
         city: locationResponse.data.results[0].components.postal_city,
         temp: weatherResponse.data.current.temp,
-        humidity: weatherResponse.data.current.humidity
+        humidity: weatherResponse.data.current.humidity,
+        windspeed: weatherResponse.data.current.wind_speed
         
       };
       this.setState({ location: weatherInfo });     
@@ -35,14 +36,19 @@ export class App extends Component {
   render() {
     const temp = this.state.location.temp;
     const city = this.state.location.city
+    const humidity = this.state.location.humidity
+    const windspeed = this.state.location.windspeed
 
     return (
       
       <div>
         <h1 data-testid="header">Welcome to Weather App 3000</h1>
         <div data-cy="weather-display">
-          <div data-cy="temp">{temp}°C</div>
-          <div data-cy="location">{city} </div>
+          <div data-cy="location">Location: {city} </div>
+          <div data-cy="temp">Temperature: {temp}°C</div>          
+          <div data-cy="humidity">Humidity: {humidity}%</div>
+          <div data-cy="windspeed">Windspeed: {windspeed}m/s </div>
+
         </div>
 
       </div>
