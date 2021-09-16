@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Item } from "semantic-ui-react";
+import { Line } from "react-chartjs-2"
+
 
 export class App extends Component {
   state = {
@@ -18,6 +20,17 @@ export class App extends Component {
       const weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${weatherKey}`
       );
+
+      // const locationResponse = await axios({
+      //   method: "GET",
+      //   url: `https://api.opencagedata.com/geocode/v1/json`,
+      //   params: { key: cageKey, q: `${latitude}+${longitude}` },
+      // });
+      // const weatherResponse = await axios.get({
+      //   method: "GET",
+      //   url: 'https://api.openweathermap.org/data/2.5/onecall?units=metric',
+      //   params: { appid: weatherKey, lat: `${latitude}`, long: `${longitude}`}
+      // });
 
       const weatherInfo = {
         city: locationResponse.data.results[0].components.postal_city,
@@ -48,7 +61,7 @@ export class App extends Component {
           <div data-cy="temp">Temperature: {temp}°C</div>
           <div data-cy="humidity">Humidity: {humidity}%</div>
           <div data-cy="windspeed">Windspeed: {windspeed}m/s </div>
-          <div data-cy="weather"> Weather {weather}</div>
+          <div data-cy="weather"> Weather: {weather}</div>
         </div>
       </div>
     );
