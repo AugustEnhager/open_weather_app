@@ -32,14 +32,15 @@ export class App extends Component {
 
   render() {
     const temp = this.state.location.temp;
+    const city = this.state.location.city
 
     return (
       
       <div>
-        <h1 data-testid="header">Welcome to Weather App 3000, you are in and its {temp}°C</h1>
+        <h1 data-testid="header">Welcome to Weather App 3000</h1>
         <div data-cy="weather-display">
-          <div data-cy="temp"></div>
-          <div data-cy="location"> </div>
+          <div data-cy="temp">{temp}°C</div>
+          <div data-cy="location">{city} </div>
         </div>
 
       </div>
