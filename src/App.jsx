@@ -22,9 +22,11 @@ export class App extends Component {
       const weatherInfo = {
         city: locationResponse.data.results[0].components.postal_city,
         temp: weatherResponse.data.current.temp,
+        humidity: weatherResponse.data.current.humidity
+        
       };
       this.setState({ location: weatherInfo });     
-      debugger
+      
     });
   }
 
