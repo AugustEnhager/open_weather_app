@@ -34,7 +34,15 @@ const App = () => {
     fetchData();
   }, []);
 
-  return <div></div>;
+  const temp = location.temp;
+  const city = location.city;
+  const humidity = location.humidity;
+  const windspeed = location.windspeed;
+  const weather = location.weather;
+
+  return;
+
+  <div></div>;
 };
 
 export default App;
@@ -117,67 +125,67 @@ export default App;
 //     const weather = this.state.location.weather;
 
 //     return (
-//       <div>
-//         <div data-testid="header" class="ui huge center aligned header teal">
-//           Welcome to Weather App 3000
-//         </div>
-//         <div class="ui grid">
-//           <div class="four wide column">
-//             <div data-cy="weather-display">
-//               <div class="ui relaxed divided list">
-//                 <div class="item">
-//                   <i class></i>
-//                   <div class="content">
-//                     <a class="header"></a>
-//                     <div class="description"></div>
-//                   </div>
-//                 </div>
-//                 <div class="item">
-//                   <i class="large world middle aligned icon green"></i>
-//                   <div class="content">
-//                     <a class="header">Location</a>
-//                     <div data-cy="location">{city}</div>
-//                   </div>
-//                 </div>
-//                 <div class="item">
-//                   <i class="large fire middle aligned icon red"></i>
-//                   <div class="content">
-//                     <a class="header">Temperature</a>
-//                     <div data-cy="temp">{temp}°C</div>
-//                   </div>
-//                 </div>
-//                 <div class="item">
-//                   <i class="large angle double right middle aligned icon"></i>
-//                   <div class="content">
-//                     <a class="header">Windspeed</a>
-//                     <div data-cy="windspeed">{windspeed}m/s</div>
-//                   </div>
-//                 </div>
+      <div>
+        <div data-testid="header" class="ui huge center aligned header teal">
+          Welcome to Weather App 3000
+        </div>
+        <div class="ui grid">
+          <div class="four wide column">
+            <div data-cy="weather-display">
+              <div class="ui relaxed divided list">
+                <div class="item">
+                  <i class></i>
+                  <div class="content">
+                    <a class="header"></a>
+                    <div class="description"></div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large world middle aligned icon green"></i>
+                  <div class="content">
+                    <a class="header">Location</a>
+                    <div data-cy="location">{city}</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large fire middle aligned icon red"></i>
+                  <div class="content">
+                    <a class="header">Temperature</a>
+                    <div data-cy="temp">{temp}°C</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large angle double right middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Windspeed</a>
+                    <div data-cy="windspeed">{windspeed}m/s</div>
+                  </div>
+                </div>
 
-//                 <div class="item">
-//                   <i class="large tint middle aligned icon blue"></i>
-//                   <div class="content">
-//                     <a class="header">Humidity</a>
-//                     <div data-cy="humidity">{humidity}%</div>
-//                   </div>
-//                 </div>
-//                 <div class="item">
-//                   <i class="large cloud middle aligned icon grey"></i>
-//                   <div class="content">
-//                     <a class="header">Weather</a>
-//                     <div data-cy="weather">{weather}</div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//           <div class="twelve wide column">
-//             <Line data={data} />
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
+                <div class="item">
+                  <i class="large tint middle aligned icon blue"></i>
+                  <div class="content">
+                    <a class="header">Humidity</a>
+                    <div data-cy="humidity">{humidity}%</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large cloud middle aligned icon grey"></i>
+                  <div class="content">
+                    <a class="header">Weather</a>
+                    <div data-cy="weather">{weather}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twelve wide column">
+            <Line data={data} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 // export default App;
