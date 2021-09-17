@@ -13,8 +13,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## User Stories
 
 As a user
-In order to be able to plan my day
-I want to see the temperature for my current location
+In order to be able to plan my day.
+I want to see the temperature, humidity, windspeed, weather for my current location
+I want to be able to plan and see the temperature a week ahead.
+
 
 ## Available Scripts
 

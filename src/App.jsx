@@ -58,13 +58,14 @@ export class App extends Component {
       });
       data = {
         labels: labels,
-        datasets: [{ 
-          label: "Daily Temperature", 
-          data: dataItems, 
-          borderColor: 'rgba(0, 128, 128, 0.6)',
-          tension: 0.1
-        }]
-        
+        datasets: [
+          {
+            label: "Daily Temperature °C",
+            data: dataItems,
+            borderColor: "rgba(0, 128, 128, 0.6)",
+            tension: 0.1,
+          },
+        ],
       };
     }
 
@@ -94,21 +95,21 @@ export class App extends Component {
                   <i class="large world middle aligned icon green"></i>
                   <div class="content">
                     <a class="header">Location</a>
-                    <div class="description">{city}</div>
+                    <div data-cy="location">{city}</div>
                   </div>
                 </div>
                 <div class="item">
                   <i class="large fire middle aligned icon red"></i>
                   <div class="content">
                     <a class="header">Temperature</a>
-                    <div class="description">{temp}°C</div>
+                    <div data-cy="temp">{temp}°C</div>
                   </div>
                 </div>
                 <div class="item">
                   <i class="large angle double right middle aligned icon"></i>
                   <div class="content">
                     <a class="header">Windspeed</a>
-                    <div class="description">{windspeed}m/s</div>
+                    <div data-cy="windspeed">{windspeed}m/s</div>
                   </div>
                 </div>
 
@@ -116,21 +117,21 @@ export class App extends Component {
                   <i class="large tint middle aligned icon blue"></i>
                   <div class="content">
                     <a class="header">Humidity</a>
-                    <div class="description">{humidity}%</div>
+                    <div data-cy="humidity">{humidity}%</div>
                   </div>
                 </div>
                 <div class="item">
                   <i class="large cloud middle aligned icon grey"></i>
                   <div class="content">
                     <a class="header">Weather</a>
-                    <div class="description">{weather}</div>
+                    <div data-cy="weather">{weather}</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="twelve wide column">
-            <Line data={data}/>
+            <Line data={data} />
           </div>
         </div>
       </div>
