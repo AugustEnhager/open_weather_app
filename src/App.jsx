@@ -1,32 +1,38 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; 
+import axios from "axios";
 
 const App = () => {
   const [location, setLocation] = useState({});
 
   const fetchData = () => {
-    navigator.geolocation.getCurrentPosition(async (position) => {      
-
+    navigator.geolocation.getCurrentPosition(async (position) => {
       let { latitude, longitude } = position.coords;
       const cageKey = "62ec85f74ac844b6a9b671b840175735";
-        
+      const weatherKey = "c1d9dbe5c0dfaac680ddbc9e7a19e334";
+
       const locationResponse = await axios.get(
         `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${cageKey}`
       );
-      
+      const weatherResponse = await axios.get(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${weatherKey}`
+      );
+
       let weatherInfo = {
-        city: locationResponse.data.results[0].components.postal_city
-      }
+        city: locationResponse.data.results[0].components.postal_city,
+        temp: weatherResponse.data.current.temp,
+        humidity: weatherResponse.data.current.humidity,
+        windspeed: weatherResponse.data.current.wind_speed,
+        weather: weatherResponse.data.current.weather[0].main,
+      };
 
       setLocation(weatherInfo);
-      debugger 
+      debugger;
     });
   };
 
   useEffect(() => {
- fetchData()
-  }, [])
-
+    fetchData();
+  }, []);
 
   return <div></div>;
 };
