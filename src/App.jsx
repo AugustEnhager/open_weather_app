@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios"; 
 
 const App = () => {
   const [location, setLocation] = useState({});
 
   const fetchData = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-    
-      setLocation(position.coords);
+    navigator.geolocation.getCurrentPosition(async (position) => {      
+
+      let { latitude, longitude } = position.coords;
+      const cageKey = "62ec85f74ac844b6a9b671b840175735";
+        
+      const locationResponse = await axios.get(
+        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${cageKey}`
+      );
+      
+      let weatherInfo = {
+        city: locationResponse.data.results[0].components.postal_city
+      }
+
+      setLocation(weatherInfo);
+      debugger 
     });
   };
 
