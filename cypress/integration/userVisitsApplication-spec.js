@@ -1,9 +1,9 @@
 describe("weather info for user's location", () => {
   beforeEach(() => {
-    cy.intercept("https:/api.openweathermap.org/data/2.5/**", {
+    cy.intercept("https:/api.openweathermap.org/data/**", {
       fixture: "weather_response.json",
     });
-    cy.intercept("https:/api.opencagedata.com/geocode/vi/json/**", {
+    cy.intercept("https:/api.opencagedata.com/geocode/vi/**", {
       fixture: "location_response.json",
     });
   });
